@@ -1,24 +1,24 @@
 <template>
 	<el-dialog v-model="visible" :title="!dataForm.id ? '新增' : '修改'" :close-on-click-modal="false">
 		<el-form ref="dataFormRef" :model="dataForm" :rules="dataRules" label-width="100px" @keyup.enter="submitHandle()">
-	    				<el-form-item label="名称" prop="tenantName">
-					<el-input v-model="dataForm.tenantName" placeholder="名称"></el-input>
-				</el-form-item>
-				<el-form-item label="联系人姓名" prop="contactPerson">
-					<el-input v-model="dataForm.contactPerson" placeholder="联系人姓名"></el-input>
-				</el-form-item>
-				<el-form-item label="联系人电话" prop="contactPhone">
-					<el-input v-model="dataForm.contactPhone" placeholder="联系人电话"></el-input>
-				</el-form-item>
-				<el-form-item label="联系人邮箱" prop="contactEmail">
-					<el-input v-model="dataForm.contactEmail" placeholder="联系人邮箱"></el-input>
-				</el-form-item>
-				<el-form-item label="租户状态（0：未激活，1：已激活）" prop="status">
-					<el-input v-model="dataForm.status" placeholder="租户状态（0：未激活，1：已激活）"></el-input>
-				</el-form-item>
-				<el-form-item label="创建者所属机构" prop="orgId">
-					<el-input v-model="dataForm.orgId" placeholder="创建者所属机构"></el-input>
-				</el-form-item>
+			<el-form-item label="名称" prop="tenantName">
+				<el-input v-model="dataForm.tenantName" placeholder="名称"></el-input>
+			</el-form-item>
+			<el-form-item label="联系人姓名" prop="contactPerson">
+				<el-input v-model="dataForm.contactPerson" placeholder="联系人姓名"></el-input>
+			</el-form-item>
+			<el-form-item label="联系人电话" prop="contactPhone">
+				<el-input v-model="dataForm.contactPhone" placeholder="联系人电话"></el-input>
+			</el-form-item>
+			<el-form-item label="联系人邮箱" prop="contactEmail">
+				<el-input v-model="dataForm.contactEmail" placeholder="联系人邮箱"></el-input>
+			</el-form-item>
+			<el-form-item label="租户状态（0：未激活，1：已激活）" prop="status">
+				<el-input v-model="dataForm.status" placeholder="租户状态（0：未激活，1：已激活）"></el-input>
+			</el-form-item>
+			<el-form-item label="创建者所属机构" prop="orgId">
+				<el-input v-model="dataForm.orgId" placeholder="创建者所属机构"></el-input>
+			</el-form-item>
 		</el-form>
 		<template #footer>
 			<el-button @click="visible = false">取消</el-button>
@@ -38,19 +38,20 @@ const visible = ref(false)
 const dataFormRef = ref()
 
 const dataForm = reactive({
-	id: '',
+	id: 1,
 	tenantName: '',
 	contactPerson: '',
 	contactPhone: '',
 	contactEmail: '',
-	status: '',
+	status: 1,
 	createTime: '',
 	updateTime: '',
-	creator: '',
-	updater: '',
-	orgId: '',
-	version: '',
-	deleted: ''})
+	creator: 1,
+	updater: 1,
+	orgId: 1,
+	version: 1,
+	deleted: 0
+})
 
 const init = (id?: number) => {
 	visible.value = true
@@ -78,7 +79,8 @@ const dataRules = ref({
 	contactPhone: [{ required: true, message: '必填项不能为空', trigger: 'blur' }],
 	contactEmail: [{ required: true, message: '必填项不能为空', trigger: 'blur' }],
 	status: [{ required: true, message: '必填项不能为空', trigger: 'blur' }],
-	orgId: [{ required: true, message: '必填项不能为空', trigger: 'blur' }]})
+	orgId: [{ required: true, message: '必填项不能为空', trigger: 'blur' }]
+})
 
 // 表单提交
 const submitHandle = () => {
