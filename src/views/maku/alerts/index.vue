@@ -1,14 +1,14 @@
 <template>
-	<el-card class="layout-query">
-		<el-form ref="queryRef" :inline="true" :model="state.queryForm" @keyup.enter="getDataList()">
-					<el-form-item>
-				<el-button icon="Search" type="primary" @click="getDataList()">查询</el-button>
-			</el-form-item>
-			<el-form-item>
-				<el-button icon="RefreshRight" @click="reset(queryRef)">重置</el-button>
-			</el-form-item>
-		</el-form>
-	</el-card>
+    <el-card class="layout-query">
+        <el-form ref="queryRef" :inline="true" :model="state.queryForm" @keyup.enter="getDataList()">
+            <el-form-item>
+                <el-button icon="Search" type="primary" @click="getDataList()">查询</el-button>
+            </el-form-item>
+            <el-form-item>
+                <el-button icon="RefreshRight" @click="reset(queryRef)">重置</el-button>
+            </el-form-item>
+        </el-form>
+    </el-card>
 
 	<el-card>
 		<el-space>

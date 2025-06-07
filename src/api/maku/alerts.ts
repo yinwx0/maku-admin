@@ -6,7 +6,7 @@ export const useAlertsApi = (id: number) => {
 
 export const useAlertsSubmitApi = (dataForm: any) => {
 	if (dataForm.id) {
-		return service.put('/maku-cloud-management/maku/alerts', dataForm)
+		return service.post('/maku-cloud-management/maku/alerts/update', dataForm)
 	} else {
 		return service.post('/maku-cloud-management/maku/alerts', dataForm)
 	}

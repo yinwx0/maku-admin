@@ -1,5 +1,5 @@
 <template>
-	<el-dialog v-model="visible" :title="!dataForm.id ? '新增' : '修改'" :close-on-click-modal="false">
+	<el-dialog v-model="visible" :title="!dataForm.alertId ? '新增' : '修改'" :close-on-click-modal="false">
 		<el-form ref="dataFormRef" :model="dataForm" :rules="dataRules" label-width="100px" @keyup.enter="submitHandle()">
 	    				<el-form-item label="告警唯一标识符，自增主键" prop="alertId">
 					<el-input v-model="dataForm.alertId" placeholder="告警唯一标识符，自增主键"></el-input>
@@ -17,7 +17,7 @@
 					<el-input v-model="dataForm.message" placeholder="告警详细信息"></el-input>
 				</el-form-item>
 				<el-form-item label="告警创建时间" prop="createdAt">
-					<el-input v-model="dataForm.createdAt" placeholder="告警创建时间"></el-input>
+					<el-input v-model="dataForm.createdAt" placeholder="告警创建时间" :disabled="true"></el-input>
 				</el-form-item>
 		</el-form>
 		<template #footer>
@@ -38,7 +38,7 @@ const visible = ref(false)
 const dataFormRef = ref()
 
 const dataForm = reactive({
-	alertId: '',
+	id: '',
 	deviceId: '',
 	alertCode: '',
 	title: '',
