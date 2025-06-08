@@ -6,7 +6,7 @@ export const useTenantApi = (id: number) => {
 
 export const useTenantSubmitApi = (dataForm: any) => {
 	if (dataForm.id) {
-		return service.post('new/business/tenant/update', dataForm)
+		return service.put('new/business/tenant', dataForm)
 	} else {
 		return service.post('new/business/tenant', dataForm)
 	}
