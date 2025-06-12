@@ -144,6 +144,18 @@ const handleAuthorized = () => {
 		return Promise.reject('登录超时，请重新登录')
 	})
 }
+// 在@/utils/request.js中添加
+// 定义精确的请求参数类型
+interface DashboardParams {
+	page: number
+	limit: number
+	// 添加其他可能需要的参数字段
+	// status?: number; // 示例可选参数
+}
+
+export const useDeviceDashboardApi = (params: DashboardParams) => {
+	return service.get('/business/devices/dashboard', { params })
+}
 
 // 导出 axios 实例
 export default service

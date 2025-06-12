@@ -40,6 +40,25 @@ const asyncRoutes: RouteRecordRaw = {
 	redirect: '/dashboard/workbench',
 	children: [
 		{
+			path: '/dashboard/index',
+			name: 'DashboardIndex',
+			component: () => import('../views/dashboard/index.vue'),
+			meta: {
+				title: '首页',
+				cache: true,
+				affix: true
+			}
+		},
+		{
+			path: '/dashboard/workbench',
+			name: 'DashboardWorkbench',
+			component: () => import('../views/dashboard/workbench.vue'),
+			meta: {
+				title: '工作台',
+				cache: true
+			}
+		},
+		{
 			path: '/profile',
 			name: 'ProfileIndex',
 			component: () => import('../views/profile/index.vue'),
